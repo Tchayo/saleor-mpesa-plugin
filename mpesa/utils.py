@@ -68,14 +68,14 @@ def express_request(payment_information: PaymentData, config: GatewayConfig):
             timestamp = current_dt.strftime("%Y%m%d%H%M%S")
 
             pass_word = base64.b64encode(
-                (gateway_config["short_code"] + gateway_config["passkey"] + timestamp).encode(
+                (gateway_config['short_code'] + gateway_config['passkey'] + timestamp).encode(
                     'utf-8')).decode('utf-8')
 
             # Mpesa Express request
-            access_token = generate_access_token(gateway_config["access_url"], gateway_config["key"],
-                                                 gateway_config["secret"])
+            access_token = generate_access_token(gateway_config['access_url'], gateway_config['key'],
+                                                 gateway_config['secret'])
 
-            express_api_url = gateway_config["express_url"]
+            express_api_url = gateway_config['express_url']
 
             if access_token is None:
                 # error message if keys are not set
@@ -98,13 +98,13 @@ def express_request(payment_information: PaymentData, config: GatewayConfig):
                 integer_amount = round(payment_information.amount)
 
                 mpesa_request_body = {
-                    "BusinessShortCode": gateway_config["short_code"],
+                    "BusinessShortCode": gateway_config['short_code'],
                     "Password": pass_word,
                     "Timestamp": timestamp,
                     "TransactionType": "CustomerPayBillOnline",
                     "Amount": str(integer_amount),
                     "PartyA": phone,
-                    "PartyB": gateway_config["short_code"],
+                    "PartyB": gateway_config['short_code'],
                     "PhoneNumber": phone,
                     "CallBackURL": MPESA_EXPRESS_CALLBACK_URL,
                     "AccountReference": payment_information.payment_id,
@@ -128,7 +128,7 @@ def express_request(payment_information: PaymentData, config: GatewayConfig):
                         error=mpesa_success_response,
                     )
 
-                if 'errorMessage' in data:
+                elif 'errorMessage' in data:
                     error_message = data['errorMessage']
 
                     return GatewayResponse(
@@ -140,6 +140,19 @@ def express_request(payment_information: PaymentData, config: GatewayConfig):
                         transaction_id=payment_information.token,
                         error=error_message,
                     )
+                else:
+                    error_message = "No message to display"
+
+                    return GatewayResponse(
+                        is_success=False,
+                        action_required=False,
+                        kind=TransactionKind.CAPTURE,
+                        amount=payment_information.amount,
+                        currency=payment_information.currency,
+                        transaction_id=payment_information.token,
+                        error=error_message,
+                    )
+
         else:
             # error message if keys are not set
             message = "Express payment failed! Make sure your phone number is in your billing address"
