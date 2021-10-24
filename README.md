@@ -39,4 +39,5 @@ Hopefully you can implement the above functionalities on your own.
 ## License
 
 NONE
-**Free Software! Do with it as you wish. Get it, modify it, secure it and fix or improve it where necessary. I will not assume or have any liability or responsibility for failures and/or bugs**
+
+**Free Software! Do with it as you wish. Get it, modify it, secure it and fix or improve it where necessary. I will neither assume nor have any liability/responsibility for failures and/or bugs on this software**
