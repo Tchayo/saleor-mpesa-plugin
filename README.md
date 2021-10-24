@@ -17,6 +17,8 @@ Locate the plugins constant and add the line below to the array
 
 From the admin dashboard plugin settings, set up your organization's BUSINESS_SHORT_CODE, CONSUMER_KEY, CONSUMER_SECRET and PASSKEY. Without these keys the plugin will not work.
 
+in the utils file you can modify the **MPESA_EXPRESS_CALLBACK_URL** to your **SECURE** callback url. This is where you will receive callbacks from Mpesa with your transaction status. You can use the callbacks to update your payments appropriately. I would recommend you set the MPESA_EXPRESS_CALLBACK_URL in your settings.py file.
+
 Do Not forget to setup KES as your default currency.
 
 Use the change_currency command to change defaut currency for all models to KES i.e.
