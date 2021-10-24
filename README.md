@@ -1,4 +1,4 @@
-# Sample Mpesa for Saleor
+# Sample Mpesa plugin for Saleor
 
 ## Installation
 
