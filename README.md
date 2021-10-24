@@ -15,6 +15,16 @@ Locate the plugins constant and add the line below to the array
 "saleor.payment.gateways.mpesa.plugin.MpesaGatewayPlugin",
 ```
 
+From the admin dashboard plugin settings, set up your organization's BUSINESS_SHORT_CODE, CONSUMER_KEY, CONSUMER_SECRET and PASSKEY. Without these keys the plugin will not work.
+
+Do Not forget to setup KES as your default currency.
+
+Use the change_currency command to change defaut currency for all models to KES i.e.
+
+```
+change_currency KES
+```
+
 ### NB
 
 The plugin only implements LIPA NA M-PESA ONLINE API also know as M-PESA express (STK Push). It lacks most of Mpesa SKD functionalities, such as
