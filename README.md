@@ -2,7 +2,7 @@
 
 ## Installation
 
-In your project directory navigate to payments app located in the saleor directory
+Copy the mpesa folder to payment app folder name gateways located in the saleor directory
 
 ```sh
 cp -R mpesa <YOUR_PROJECT_ROOT>/saleor/payment/gateways
