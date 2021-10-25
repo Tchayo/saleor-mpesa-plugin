@@ -7,6 +7,7 @@ from . import (
     GatewayConfig,
     authorize,
     capture,
+    get_client_token,
     process_payment,
     refund,
     void,
@@ -135,6 +136,10 @@ class MpesaGatewayPlugin(BasePlugin):
         self, payment_information: "PaymentData", previous_value
     ) -> "GatewayResponse":
         return process_payment(payment_information, self._get_gateway_config())
+    
+    @require_active_plugin
+    def get_client_token(self, token_config: "TokenConfig", previous_value):
+        return get_client_token()
 
     @require_active_plugin
     def get_supported_currencies(self, previous_value):
