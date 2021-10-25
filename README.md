@@ -24,7 +24,7 @@ Do Not forget to setup KES as your default currency.
 Use the change_currency command to change defaut currency for all models to KES i.e.
 
 ```
-change_currency KES
+python manage.py change_currency KES
 ```
 
 ### NB
