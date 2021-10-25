@@ -1,4 +1,4 @@
-from saleor.payment.interface import GatewayResponse, PaymentData
+from saleor.payment.interface import GatewayResponse, PaymentData, TokenConfig
 from saleor.plugins.base_plugin import BasePlugin, ConfigurationTypeField
 
 from ..utils import get_supported_currencies
