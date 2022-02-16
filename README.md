@@ -29,7 +29,7 @@ python manage.py change_currency KES
 
 ### NB
 
-The plugin only implements LIPA NA M-PESA ONLINE API also know as M-PESA express (STK Push). It lacks most of Mpesa SKD functionalities, such as
+The plugin only implements LIPA NA M-PESA ONLINE API also know as M-PESA express (STK Push). It lacks most of Mpesa SDK functionalities, such as
 
 - Mpesa CallBack Processing
 - C2B, B2C, B2B
