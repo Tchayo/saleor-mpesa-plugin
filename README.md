@@ -8,7 +8,7 @@ Copy the mpesa folder to payment app folder name gateways located in the saleor 
 cp -R mpesa <YOUR_PROJECT_ROOT>/saleor/payment/gateways
 ```
 
-Next step is add this plugin to your setting.py file in the saleor folder.
+Next step is to add this plugin to your setting.py file in the saleor folder.
 Locate the plugins constant and add the line below to the array
 
 ```
